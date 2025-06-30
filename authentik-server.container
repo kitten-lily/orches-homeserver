@@ -1,0 +1,49 @@
+[Unit]
+Description=Authentik Server
+Requires=authentik-pgsql.container
+Requires=authentik-redis.container
+Requires=authentik-newt.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=authentik-server
+Exec=server
+Image=ghcr.io/goauthentik/server:2025.6.3
+HostName=authentik
+Network=authentik.network
+Volume=authentik-media:/media
+Volume=authentik-templates:/templates
+Environment=AUTHENTIK_ERROR_REPORTING__ENABLED=true
+Environment=AUTHENTIK_REDIS__HOST=authentik-redis
+Secret=authentik-secret-key,type=env,target=AUTHENTIK_SECRET_KEY
+# SMTP Host Emails are sent to
+Environment=AUTHENTIK_EMAIL__HOST=in-v3.mailjet.com
+Secret=authentik-email-host,type=env,target=AUTHENTIK_EMAIL__HOST
+Environment=AUTHENTIK_EMAIL__PORT=587
+# Optionally authenticate (don't add quotation marks to your password)
+Secret=authentik-email-username,type=env,target=AUTHENTIK_EMAIL__USERNAME
+Secret=authentik-email-password,type=env,target=AUTHENTIK_EMAIL__PASSWORD
+# Use StartTLS
+Environment=AUTHENTIK_EMAIL__USE_TLS=true
+# Use SSL
+Environment=AUTHENTIK_EMAIL__USE_SSL=false
+Environment=AUTHENTIK_EMAIL__TIMEOUT=10
+# Email address authentik will send from, should have a correct @domain
+Secret=authentik-email-from,type=env,target=AUTHENTIK_EMAIL__FROM
+Environment=AUTHENTIK_EMAIL__FROM=authentik@kittenlily.net
+Environment=AUTHENTIK_POSTGRESQL__HOST=authentik-pgsql
+Environment=AUTHENTIK_POSTGRESQL__USER=authentik
+Environment=AUTHENTIK_POSTGRESQL__NAME=authentik
+Secret=authentik-pg-pass,type=env,target=AUTHENTIK_POSTGRESQL__PASSWORD
+HealthCmd=ak healthcheck
+HealthStartPeriod=60s
+HealthInterval=30s
+HealthRetries=3
+HealthTimeout=30s
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

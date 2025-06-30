@@ -1,0 +1,34 @@
+[Unit]
+Description=Authentik Worker Service
+Requires=authentik-pgsql.container
+Requires=authentik-redis.container
+Requires=authentik-newt.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=authentik-worker
+Exec=worker
+Image=ghcr.io/goauthentik/server:2025.6.3
+HostName=authentik-worker
+Network=authentik.network
+Volume=authentik-certs:/certs
+Volume=authentik-media:/media
+Volume=authentik-templates:/templates
+Environment=AUTHENTIK_REDIS__HOST=authentik-redis
+Environment=AUTHENTIK_POSTGRESQL__HOST=authentik-pgsql
+Environment=AUTHENTIK_POSTGRESQL__USER=authentik
+Environment=AUTHENTIK_POSTGRESQL__NAME=authentik
+Secret=authentik-pg-pass,type=env,target=AUTHENTIK_POSTGRESQL__PASSWORD
+Secret=authentik-secret-key,type=env,target=AUTHENTIK_SECRET_KEY
+HealthCmd=ak healthcheck
+HealthStartPeriod=60s
+HealthInterval=30s
+HealthRetries=3
+HealthTimeout=30s
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

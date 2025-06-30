@@ -1,0 +1,16 @@
+[Unit]
+Description=Newt Service for Immich
+
+[Container]
+AutoUpdate=registry
+ContainerName=immich-newt
+Image=docker.io/fosrl/newt
+Secret=immich-newt-id,type=env,target=NEWT_ID
+Secret=immich-newt-secret,type=env,target=NEWT_SECRET
+Secret=immich-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=immich-newt
+Network=immich.network
+
+[Service]
+Restart=always
+TimeoutStartSec=900

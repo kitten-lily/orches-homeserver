@@ -1,0 +1,19 @@
+[Unit]
+Description=Transmission torrent client
+
+[Container]
+AutoUpdate=registry
+ContainerName=servarr-transmission
+Image=lscr.io/linuxserver/transmission:latest
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Stockholm
+Secret=servarr-transmission-user,type=env,target=USER
+Secret=servarr-transmission-password,type=env,target=PASS
+Pod=servarr.pod
+Volume=servarr-transmission-config:/config
+Volume=/var/media/Downloads/flood:/downloads:z
+
+[Service]
+Restart=always
+TimeoutStartSec=900

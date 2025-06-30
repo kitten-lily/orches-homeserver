@@ -1,0 +1,23 @@
+[Unit]
+Description=Immich PostgreSQL Database
+
+[Container]
+AutoUpdate=registry
+ContainerName=immich-pgsql
+Image=ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
+HostName=immich-pgsql
+Network=immich.network
+Environment=POSTGRES_USER=postgres
+Environment=POSTGRES_DB=immich
+Environment=POSTGRES_INITDB_ARGS=--data-checksums
+Volume=immich-data:/var/lib/postgresql/data
+Secret=immich-db-password,type=env,target=POSTGRES_PASSWORD
+HealthCmd=pg_isready -U postgres -d immich
+HealthStartPeriod=20s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+
+[Service]
+Restart=always
+TimeoutStartSec=900

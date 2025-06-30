@@ -1,0 +1,18 @@
+[Unit]
+Description=Gluetun VPN service for arr stack
+
+[Container]
+AutoUpdate=registry
+ContainerName=servarr-gluetun
+Image=docker.io/qmcgaw/gluetun
+Environment=VPN_SERVICE_PROVIDER=protonvpn
+Environment=VPN_TYPE=wireguard
+Environment=SERVER_COUNTRIES=Sweden
+Secret=servarr-wireguard-private-key,type=env,target=WIREGUARD_PRIVATE_KEY
+AddDevice=/dev/net/tun
+Pod=servarr.pod
+AddCapability=NET_ADMIN
+
+[Service]
+Restart=always
+TimeoutStartSec=900

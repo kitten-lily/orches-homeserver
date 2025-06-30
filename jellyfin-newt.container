@@ -1,0 +1,16 @@
+[Unit]
+Description=Newt Service for jellyfin
+
+[Container]
+AutoUpdate=registry
+ContainerName=jellyfin-newt
+Image=docker.io/fosrl/newt
+Secret=jellyfin-newt-id,type=env,target=NEWT_ID
+Secret=jellyfin-newt-secret,type=env,target=NEWT_SECRET
+Secret=jellyfin-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=jellyfin-newt
+Network=jellyfin.network
+
+[Service]
+Restart=always
+TimeoutStartSec=900

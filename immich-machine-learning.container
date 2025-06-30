@@ -1,0 +1,26 @@
+[Unit]
+Description=Immich Machine Learning Services
+
+[Container]
+AutoUpdate=registry
+ContainerName=immich-machine-learning
+Image=ghcr.io/immich-app/immich-machine-learning:release
+HostName=immich-machine-learning
+Network=immich.network
+Environment=DB_USERNAME=postgres
+Environment=DB_DATABASE_NAME=immich
+Environment=DB_HOSTNAME=immich-pgsql
+Volume=immich-model-cache:/cache
+Secret=immich-db-password,type=env,target=DB_PASSWORD
+HealthCmd=python3 healthcheck.py
+HealthStartPeriod=30s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

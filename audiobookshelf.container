@@ -1,0 +1,22 @@
+[Unit]
+Description=Audiobookshelf Podcast and Audiobook Server
+Requires=audiobookshelf-newt.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=audiobookshelf
+Image=ghcr.io/advplyr/audiobookshelf
+HostName=audiobookshelf
+Network=audiobookshelf.network
+Volume=audiobookshelf-config:/config
+Volume=audiobookshelf-metadata:/metadata
+Volume=/var/media/Podcasts:/podcasts:z
+Volume=/var/media/AudioBooks:/audiobooks:ro,z
+AddDevice=/dev/dri
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,23 @@
+[Unit]
+Description=Authentik Redis Service
+
+[Container]
+AutoUpdate=registry
+ContainerName=authentik-redis
+Exec=redis-server --save 60 1 --loglevel warning
+Image=docker.io/library/redis:alpine
+HostName=authentik-redis
+Network=authentik.network
+HealthCmd=redis-cli ping | grep PONG
+HealthStartPeriod=20s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+Volume=authentik-redis:/data
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

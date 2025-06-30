@@ -1,0 +1,17 @@
+[Unit]
+Description=Prowlarr
+
+[Container]
+AutoUpdate=registry
+ContainerName=servarr-prowlarr
+Image=ghcr.io/hotio/prowlarr
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=UMASK=002
+Environment=TZ=Europe/Stockholm
+Pod=servarr.pod
+Volume=servarr-prowlarr-config:/config
+
+[Service]
+Restart=always
+TimeoutStartSec=900

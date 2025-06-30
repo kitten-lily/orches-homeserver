@@ -1,0 +1,16 @@
+[Unit]
+Description=Newt Service for Audiobookshelf
+
+[Container]
+AutoUpdate=registry
+ContainerName=audiobookshelf-newt
+Image=docker.io/fosrl/newt
+Secret=audiobookshelf-newt-id,type=env,target=NEWT_ID
+Secret=audiobookshelf-newt-secret,type=env,target=NEWT_SECRET
+Secret=audiobookshelf-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=audiobookshelf-newt
+Network=audiobookshelf.network
+
+[Service]
+Restart=always
+TimeoutStartSec=900

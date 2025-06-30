@@ -1,0 +1,25 @@
+[Unit]
+Description=Authentik PostgreSQL Database
+
+[Container]
+AutoUpdate=registry
+ContainerName=authentik-pgsql
+Image=docker.io/library/postgres:16-alpine
+HostName=authentik-pgsql
+Network=authentik.network
+Secret=authentik-pg-pass,type=env,target=POSTGRES_PASSWORD
+Environment=POSTGRES_USER=authentik
+Environment=POSTGRES_DB=authentik
+HealthCmd=pg_isready -U authentik -d authentik
+HealthStartPeriod=20s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+Volume=authentik-pgsql:/var/lib/postgresql/data
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target
