@@ -3,6 +3,7 @@ Description=Authentik Server
 Requires=authentik-pgsql.container
 Requires=authentik-redis.container
 Requires=authentik-newt.container
+After=authentik-pgsql.container
 
 [Container]
 AutoUpdate=registry
@@ -47,3 +48,4 @@ TimeoutStartSec=900
 
 [Install]
 WantedBy=multi-user.target default.target
+ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/secrets.sh'

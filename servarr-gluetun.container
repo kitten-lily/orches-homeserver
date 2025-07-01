@@ -16,3 +16,4 @@ AddCapability=NET_ADMIN
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && podman_secret Servarr "Wireguard Private Key" servarr-wireguard-private-key'

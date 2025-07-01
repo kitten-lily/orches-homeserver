@@ -25,6 +25,7 @@ AddDevice=/dev/dri
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && podman_secret Jellyfin "Server URL" jellyfin-server-url'
 
 [Install]
 WantedBy=default.target

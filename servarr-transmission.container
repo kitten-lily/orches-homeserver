@@ -17,3 +17,4 @@ Volume=/var/media/Downloads/flood:/downloads:z
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/servarr/transmission_secrets.sh'

@@ -3,6 +3,7 @@ Description=Authentik Worker Service
 Requires=authentik-pgsql.container
 Requires=authentik-redis.container
 Requires=authentik-newt.container
+After=authentik-pgsql.container
 
 [Container]
 AutoUpdate=registry

@@ -3,6 +3,7 @@ Description=Immich Server
 Requires=immich-pgsql.container
 Requires=immich-redis.container
 Requires=immich-newt.container
+After=immich-pgsql.container
 
 [Container]
 AutoUpdate=registry
