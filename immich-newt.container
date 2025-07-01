@@ -14,3 +14,4 @@ Network=immich.network
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && newt_secrets immich'
