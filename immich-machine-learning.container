@@ -1,5 +1,7 @@
 [Unit]
 Description=Immich Machine Learning Services
+Requires=immich-pgsql.container
+After=immich-pgsql.container
 
 [Container]
 AutoUpdate=registry
