@@ -1,0 +1,18 @@
+[Unit]
+Description=Newt Service for Servarr
+
+[Container]
+AutoUpdate=registry
+ContainerName=servarr-newt
+Image=docker.io/fosrl/newt
+Secret=servarr-newt-id,type=env,target=NEWT_ID
+Secret=servarr-newt-secret,type=env,target=NEWT_SECRET
+Secret=servarr-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=servarr-newt
+Pod=servarr.pod
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && newt_secrets servarr'
