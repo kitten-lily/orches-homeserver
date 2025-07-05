@@ -13,7 +13,7 @@ Volume=audiobookshelf-metadata:/metadata
 Volume=/var/media/Podcasts:/podcasts:z
 Volume=/var/media/AudioBooks:/audiobooks:ro,z
 AddDevice=/dev/dri
-
+UserNS=auto
 
 [Service]
 Restart=always
