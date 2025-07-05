@@ -21,7 +21,6 @@ Environment=PGID=1000
 Environment=TZ=Europe/Stockholm
 Secret=jellyfin-server-url,type=env,target=JELLYFIN_PublishedServerUrl
 AddDevice=/dev/dri
-UserNS=auto
 
 [Service]
 Restart=always

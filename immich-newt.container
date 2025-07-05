@@ -10,7 +10,7 @@ Secret=immich-newt-secret,type=env,target=NEWT_SECRET
 Secret=immich-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
 HostName=immich-newt
 Network=immich.network
-
+UserNS=auto
 
 [Service]
 Restart=always
