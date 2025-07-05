@@ -23,7 +23,7 @@ HealthStartPeriod=30s
 HealthInterval=30s
 HealthRetries=5
 HealthTimeout=5s
-UserNS=auto
+
 
 [Service]
 Restart=always

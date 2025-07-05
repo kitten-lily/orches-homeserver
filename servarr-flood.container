@@ -12,7 +12,7 @@ Pod=servarr.pod
 Exec=--port 3001 --allowedpath /downloads
 Volume=servarr-flood-config:/config
 Volume=/var/media/Downloads/flood:/downloads:z
-UserNS=auto
+
 
 [Service]
 Restart=always

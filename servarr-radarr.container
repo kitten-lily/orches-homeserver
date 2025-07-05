@@ -13,7 +13,7 @@ Pod=servarr.pod
 Volume=servarr-radarr-config:/config
 Volume=/var/media/Downloads/flood:/downloads:z
 Volume=/var/media/Video/Radarr:/movies:z
-UserNS=auto
+
 
 [Service]
 Restart=always
