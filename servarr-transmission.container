@@ -13,6 +13,7 @@ Secret=servarr-transmission-password,type=env,target=PASS
 Pod=servarr.pod
 Volume=servarr-transmission-config:/config
 Volume=/var/media/Downloads/flood:/downloads:z
+UserNS=auto
 
 [Service]
 Restart=always

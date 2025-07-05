@@ -10,6 +10,7 @@ Secret=authentik-newt-secret,type=env,target=NEWT_SECRET
 Secret=authentik-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
 HostName=authentik-newt
 Network=authentik.network
+UserNS=auto
 
 [Service]
 Restart=always

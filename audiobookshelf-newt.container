@@ -10,6 +10,7 @@ Secret=audiobookshelf-newt-secret,type=env,target=NEWT_SECRET
 Secret=audiobookshelf-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
 HostName=audiobookshelf-newt
 Network=audiobookshelf.network
+UserNS=auto
 
 [Service]
 Restart=always

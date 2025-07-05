@@ -10,6 +10,7 @@ Secret=jellyfin-newt-secret,type=env,target=NEWT_SECRET
 Secret=jellyfin-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
 HostName=jellyfin-newt
 Network=jellyfin.network
+UserNS=auto
 
 [Service]
 Restart=always

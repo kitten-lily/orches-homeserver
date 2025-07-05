@@ -11,6 +11,7 @@ Environment=UMASK=002
 Environment=TZ=Europe/Stockholm
 Pod=servarr.pod
 Volume=servarr-prowlarr-config:/config
+UserNS=auto
 
 [Service]
 Restart=always
