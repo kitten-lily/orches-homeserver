@@ -16,6 +16,8 @@ Volume=/var/media/usb/Video/Sonarr:/sonarr:ro,z
 Volume=/var/media/Video/Movies:/movies:ro,z
 Volume=/var/media/Music/FLAC:/music:ro,z
 Volume=/var/media/Video/Shows:/shows:ro,z
+Volume=/var/media/Video/Anime/Shows:/anime/shows:ro,z
+Volume=/var/media/Video/Anime/Movies:/anime/movies:ro,z
 Environment=PUID=1000
 Environment=PGID=1000
 Environment=TZ=Europe/Stockholm
