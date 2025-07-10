@@ -13,7 +13,7 @@ Volume=jellyfin-cache:/config/cache
 Volume=/var/media/usb/Music/Lidarr:/lidarr:ro,z
 Volume=/var/media/usb/Video/Radarr:/radarr:ro,z
 Volume=/var/media/usb/Video/Sonarr:/sonarr:ro,z
-Volume=/var/media/usb/Video/Movies:/movies:ro,z
+Volume=/var/media/Video/Movies:/movies:ro,z
 Volume=/var/media/Music/FLAC:/music:ro,z
 Volume=/var/media/Video/Shows:/shows:ro,z
 Environment=PUID=1000
