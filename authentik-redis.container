@@ -14,7 +14,7 @@ HealthInterval=30s
 HealthRetries=5
 HealthTimeout=5s
 Volume=authentik-redis:/data
-UserNS=auto:uidmapping=0:120001
+UserNS=auto:uidmapping=999:120001
 
 [Service]
 Restart=always
