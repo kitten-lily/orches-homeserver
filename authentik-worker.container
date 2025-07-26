@@ -26,7 +26,7 @@ HealthStartPeriod=60s
 HealthInterval=30s
 HealthRetries=3
 HealthTimeout=30s
-UserNS=auto:uidmapping=1000:120000
+UserNS=auto:uidmapping=1000:120000,gidmapping=1000:120000
 
 [Service]
 Restart=always

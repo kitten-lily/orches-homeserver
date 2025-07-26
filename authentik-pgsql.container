@@ -16,7 +16,7 @@ HealthInterval=30s
 HealthRetries=5
 HealthTimeout=5s
 Volume=authentik-pgsql:/var/lib/postgresql/data
-UserNS=auto:uidmapping=70:120002
+UserNS=auto:uidmapping=70:120002,gidmapping=70:120002
 
 [Service]
 Restart=always
