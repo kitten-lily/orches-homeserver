@@ -4,7 +4,7 @@ Description=Newt Service for Authentik
 [Container]
 AutoUpdate=registry
 ContainerName=authentik-newt
-Image=docker.io/fosrl/newt:1.4.0
+Image=docker.io/fosrl/newt:1.4.1
 Secret=authentik-newt-id,type=env,target=NEWT_ID
 Secret=authentik-newt-secret,type=env,target=NEWT_SECRET
 Secret=authentik-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
