@@ -4,7 +4,7 @@ Description=Newt Service for Immich
 [Container]
 AutoUpdate=registry
 ContainerName=immich-newt
-Image=docker.io/fosrl/newt:1.4.1
+Image=docker.io/fosrl/newt:1.4.2
 Secret=immich-newt-id,type=env,target=NEWT_ID
 Secret=immich-newt-secret,type=env,target=NEWT_SECRET
 Secret=immich-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
