@@ -4,7 +4,7 @@ Description=Newt Service for Audiobookshelf
 [Container]
 AutoUpdate=registry
 ContainerName=audiobookshelf-newt
-Image=docker.io/fosrl/newt:1.4.2
+Image=docker.io/fosrl/newt:1.4.4
 Secret=audiobookshelf-newt-id,type=env,target=NEWT_ID
 Secret=audiobookshelf-newt-secret,type=env,target=NEWT_SECRET
 Secret=audiobookshelf-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
