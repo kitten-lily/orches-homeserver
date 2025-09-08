@@ -21,7 +21,7 @@ UserNS=auto:uidmapping=70:120002,gidmapping=70:120002
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/pg-secrets.sh'
 
 [Install]
 WantedBy=multi-user.target default.target
-ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/pg-secrets.sh'
