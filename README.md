@@ -21,14 +21,20 @@ This repository contains sample unit files for running orches and a demo [Caddy]
 - Podman >= 4.4
 - systemd
 
-Tested on Fedora 41, Ubuntu 24.04, and CentOS Stream 9/derivatives.
+### 1. Create 1Password token secret
+```bash
+nano -w ~/token.txt
+# Paste your 1Password token here, save and exit
+podman secret create op-sa-token ~/token.txt
+rm ~/token.txt
+```
 
-### 1. Create required directories
+### 2. Create required directories
 ```bash
 sudo mkdir -p /var/lib/orches /etc/containers/systemd
 ```
 
-### 2. Initialize orches with this repository
+### 3. Initialize orches with this repository
 ```bash
 sudo podman run --rm -it --pid=host --pull=newer \
   --mount \
@@ -39,7 +45,7 @@ sudo podman run --rm -it --pid=host --pull=newer \
   https://github.com/orches-team/orches-config-rootful.git
 ```
 
-### 3. Verify orches and caddy are running
+### 4. Verify orches and caddy are running
 ```bash
 systemctl status orches
 systemctl status caddy
@@ -51,29 +57,3 @@ curl localhost:8080
 
 - `orches.container`: Unit file for running orches as a rootful Podman container
 - `caddy.container`: Example unit file for running a Caddy webserver
-
-You can add more `.container` or `.service` files to manage additional containers or systemd services.
-
-## Customizing Your Deployment
-
-To add a new application (e.g., [Jellyfin](https://jellyfin.org/)):
-1. Fork this repository and clone it locally.
-2. Add a new unit file, e.g. `jellyfin.service`:
-
-```ini
-[Container]
-Image=docker.io/jellyfin/jellyfin
-Volume=config:/config:Z
-Volume=cache:/cache:Z
-Volume=media:/media:Z
-PublishPort=8096:8096
-
-[Install]
-WantedBy=multi-user.target default.target
-```
-
-3. Commit and push your changes.
-4. Switch orches to your fork:
-```bash
-sudo podman exec systemd-orches orches switch <YOUR_FORK_URL>
-```
