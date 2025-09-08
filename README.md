@@ -29,6 +29,13 @@ podman secret create op-sa-token ~/token.txt
 rm ~/token.txt
 ```
 
+### 2. Set up user/group namespaces
+Add
+```
+containers:2147483647:2147483648
+```
+To /etc/subuid and /etc/subgid
+
 ### 2. Create required directories
 ```bash
 sudo mkdir -p /var/lib/orches /etc/containers/systemd
