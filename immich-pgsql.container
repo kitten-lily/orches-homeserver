@@ -4,7 +4,7 @@ Description=Immich PostgreSQL Database
 [Container]
 AutoUpdate=registry
 ContainerName=immich-pgsql
-Image=ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
+Image=ghcr.io/immich-app/postgres:16-vectorchord0.4.3-pgvectors0.2.0
 HostName=immich-pgsql
 Network=immich.network
 Environment=POSTGRES_USER=postgres
