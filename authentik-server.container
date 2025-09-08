@@ -45,7 +45,7 @@ UserNS=auto:uidmapping=1000:120000,gidmapping=1000:120000
 [Service]
 Restart=always
 TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/secrets.sh'
 
 [Install]
 WantedBy=multi-user.target default.target
-ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/secrets.sh'
