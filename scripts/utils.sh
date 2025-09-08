@@ -1,25 +1,19 @@
 #!/usr/bin/env bash
 
-TOKEN_FILE="/var/lib/orches/.op-token"
 VAULT="${HOSTNAME^}"
-OP=/home/linuxbrew/.linuxbrew/bin/op
+OP_PODMAN="podman run --env VAULT=${HOSTNAME^} --rm --secret op-sa-token,type=env,target=OP_SERVICE_ACCOUNT_TOKEN"
+OP_IMAGE="docker.io/1password/op:2"
+OP="$OP_PODMAN $OP_IMAGE op"
+
 
 # Check if 1Password Service Account Token is set
 check_op_token() {
-  # Verify that the 1Password Service Account Token is set
-  if [[ ! -f $TOKEN_FILE ]]; then
-    echo "ERROR: $TOKEN_FILE does not exist."
-    echo "Please run the op_token function to create it."
-    exit 1
+  if podman secret exists op-sa-token; then
+    return 0
   fi
 
-  . $TOKEN_FILE
-
-  if [[ -z "${OP_SERVICE_ACCOUNT_TOKEN}" ]]; then
-    echo "ERROR: OP_SERVICE_ACCOUNT_TOKEN environment variable is not set"
-    echo "Please use the op_token function to set it up."
-    exit 1
-  fi
+  echo "ERROR: podman secret op-sa-token must be set to your service account token"
+  exit 1
 }
 
 # Create podman secret from 1Password item
