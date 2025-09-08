@@ -42,15 +42,13 @@ sudo podman run --rm -it --pid=host --pull=newer \
   -v /var/lib/orches:/var/lib/orches \
   -v /etc/containers/systemd:/etc/containers/systemd  \
   ghcr.io/orches-team/orches init \
-  https://github.com/orches-team/orches-config-rootful.git
+  https://github.com/kitten-lily/orches-homeserver.git
 ```
 
 ### 4. Verify orches and caddy are running
 ```bash
 systemctl status orches
-systemctl status caddy
 sudo podman exec systemd-orches orches status
-curl localhost:8080
 ```
 
 ## Repository Structure
