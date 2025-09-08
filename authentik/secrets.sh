@@ -2,7 +2,6 @@
 
 . /var/lib/orches/repo/scripts/utils.sh
 
-podman_secret Authentik "PostgreSQL Password" authentik-pg-pass
 podman_secret Authentik "Secret Key" authentik-secret-key
 podman_secret Authentik "E-mail Host" authentik-email-host
 podman_secret Authentik "E-mail Username" authentik-email-username
