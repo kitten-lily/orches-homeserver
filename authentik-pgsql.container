@@ -4,7 +4,7 @@ Description=Authentik PostgreSQL Database
 [Container]
 AutoUpdate=registry
 ContainerName=authentik-pgsql
-Image=docker.io/library/postgres:16-alpine
+Image=docker.io/library/postgres:17-alpine
 HostName=authentik-pgsql
 Network=authentik.network
 Secret=authentik-pg-pass,type=env,target=POSTGRES_PASSWORD
