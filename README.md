@@ -36,12 +36,12 @@ containers:2147483647:2147483648
 ```
 To /etc/subuid and /etc/subgid
 
-### 2. Create required directories
+### 3. Create required directories
 ```bash
 sudo mkdir -p /var/lib/orches /etc/containers/systemd
 ```
 
-### 3. Initialize orches with this repository
+### 4. Initialize orches with this repository
 ```bash
 sudo podman run --rm -it --pid=host --pull=newer \
   --mount \
@@ -52,7 +52,7 @@ sudo podman run --rm -it --pid=host --pull=newer \
   https://github.com/kitten-lily/orches-homeserver.git
 ```
 
-### 4. Verify orches and caddy are running
+### 5. Verify orches and caddy are running
 ```bash
 systemctl status orches
 sudo podman exec systemd-orches orches status
