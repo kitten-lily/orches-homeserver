@@ -24,3 +24,4 @@ TimeoutStartSec=900
 
 [Install]
 WantedBy=multi-user.target default.target
+ExecStartPre=bash -c '. /var/lib/orches/repo/authentik/pg-secrets.sh'
