@@ -8,7 +8,7 @@ After=immich-pgsql.container
 [Container]
 AutoUpdate=registry
 ContainerName=immich-server
-Image=ghcr.io/immich-app/immich-server:v1.140.1
+Image=ghcr.io/immich-app/immich-server:v1.141.1
 HostName=immich-server
 Network=immich.network
 Environment=DB_USERNAME=postgres
