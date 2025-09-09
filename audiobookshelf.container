@@ -10,8 +10,7 @@ HostName=audiobookshelf
 Network=audiobookshelf.network
 Volume=audiobookshelf-config:/config
 Volume=audiobookshelf-metadata:/metadata
-Volume=/var/media/Podcasts:/podcasts:z,U
-Volume=/var/media/AudioBooks:/audiobooks:ro,z,U
+Volume=/var/media/AudioBooks:/audiobooks:ro,z
 AddDevice=/dev/dri
 UserNS=auto:uidmapping=0:110000,gidmapping=0:110000
 
