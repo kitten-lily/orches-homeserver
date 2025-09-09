@@ -10,8 +10,8 @@ HostName=jellyfin
 Network=jellyfin.network
 Volume=jellyfin-config:/config
 Volume=jellyfin-cache:/config/cache
-Volume=/var/media/Music:/music:ro
-Volume=/var/media/Video:/video:ro
+Volume=/var/media/Music:/music:ro,z
+Volume=/var/media/Video:/video:ro,z
 Environment=PUID=1000
 Environment=PGID=1000
 Environment=TZ=Europe/Stockholm
