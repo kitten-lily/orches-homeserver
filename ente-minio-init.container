@@ -21,7 +21,7 @@ Exec=sh -c ' \
         mc mb -p wasabi-eu-central-2-v3 \
         mc mb -p scw-eu-fr-v3 \
         '
-Image=minio/mc
+Image=docker.io/minio/mc
 HostName=ente-minio-init
 Network=ente.network
 Volume=ente-minio:/data,Z,U
