@@ -7,8 +7,7 @@ After=ente-minio.container
 AutoUpdate=registry
 ContainerName=ente-minio-init
 Entrypoint=/bin/sh
-Exec=-c ' \
-        while ! mc config host add h0 http://minio:3200 changeme changeme1234 2>/dev/null \
+Exec=-c 'while ! mc config host add h0 http://minio:3200 changeme changeme1234 2>/dev/null \
         do \
           echo "Waiting for minio..." \
           sleep 0.5 \
