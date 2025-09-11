@@ -1,0 +1,36 @@
+[Unit]
+Description=Ente MinIO Init Script
+Requires=ente-minio.container
+After=ente-minio.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-minio-init
+Exec=sh -c '
+        #!/bin/sh \
+        \
+        while ! mc config host add h0 http://minio:3200 changeme changeme1234 2>/dev/null \
+        do \
+          echo "Waiting for minio..." \
+          sleep 0.5 \
+        done \
+        \
+        cd /data \
+        \
+        mc mb -p b2-eu-cen \
+        mc mb -p wasabi-eu-central-2-v3 \
+        mc mb -p scw-eu-fr-v3 \
+        '
+Image=minio/mc
+HostName=ente-minio-init
+Network=ente.network
+Volume=ente-minio:/data,Z,U
+UserNS=auto:uidmapping=0:140000,gidmapping=0:140000
+Secret=ente-minio-user,type=env,target=MINIO_ROOT_USER
+Secret=ente-minio-password,type=env,target=MINIO_ROOT_PASSWORD
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

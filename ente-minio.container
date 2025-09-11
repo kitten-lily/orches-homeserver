@@ -1,0 +1,22 @@
+[Unit]
+Description=Ente MinIO Server
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-minio
+Exec=server /data --address ":3200" --console-address ":3201"
+Image=minio/minio
+HostName=ente-minio
+Network=ente.network
+Volume=ente-minio:/data,Z,U
+UserNS=auto:uidmapping=0:140000,gidmapping=0:140000
+Secret=ente-minio-user,type=env,target=MINIO_ROOT_USER
+Secret=ente-minio-password,type=env,target=MINIO_ROOT_PASSWORD
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/ente/minio-secrets.sh'
+
+[Install]
+WantedBy=multi-user.target default.target
