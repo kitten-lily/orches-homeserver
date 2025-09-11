@@ -6,9 +6,7 @@ After=ente-minio.container
 [Container]
 AutoUpdate=registry
 ContainerName=ente-minio-init
-Exec=sh -c ' \
-        #!/bin/bash \
-        \
+Exec=bash -c ' \
         while ! mc config host add h0 http://minio:3200 changeme changeme1234 2>/dev/null \
         do \
           echo "Waiting for minio..." \
