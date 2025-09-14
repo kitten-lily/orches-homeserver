@@ -8,7 +8,7 @@ Exec=server /data --address ":3200" --console-address ":3201"
 Image=docker.io/minio/minio
 HostName=ente-minio
 Network=ente.network
-Volume=ente-minio:/data,Z,U
+Volume=ente-minio:/data:z,U
 UserNS=auto:uidmapping=0:140000,gidmapping=0:140000
 Secret=ente-minio-user,type=env,target=MINIO_ROOT_USER
 Secret=ente-minio-password,type=env,target=MINIO_ROOT_PASSWORD
