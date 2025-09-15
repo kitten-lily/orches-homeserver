@@ -13,7 +13,7 @@ s3:
       use_path_style_urls: true
       b2-eu-cen:
          # Uncomment the below configuration to override the top-level configuration
-         are_local_buckets: false
+         # are_local_buckets: true
          # use_path_style_urls: true
          key: {{ op://${VAULT}/Ente/MinIO User }}
          secret: {{ op://${VAULT}/Ente/MinIO Password }}
