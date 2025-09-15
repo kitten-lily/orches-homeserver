@@ -4,6 +4,6 @@ mc ping ente --exit
 
 cd /data
 
-mc mb -p b2-eu-cen
-mc mb -p wasabi-eu-central-2-v3
-mc mb -p scw-eu-fr-v3
+mc mb -p ente/b2-eu-cen
+mc mb -p ente/wasabi-eu-central-2-v3
+mc mb -p ente/scw-eu-fr-v3
