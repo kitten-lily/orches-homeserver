@@ -10,7 +10,7 @@ Network=ente.network
 Secret=ente-pg-pass,type=env,target=POSTGRES_PASSWORD
 Environment=POSTGRES_USER=ente
 Environment=POSTGRES_DB=ente_db
-HealthCmd=pg_isready -U ente -d ente
+HealthCmd=pg_isready -U ente -d ente_db
 HealthStartPeriod=20s
 HealthInterval=30s
 HealthRetries=5
