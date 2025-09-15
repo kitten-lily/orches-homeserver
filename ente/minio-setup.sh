@@ -1,5 +1,5 @@
 #!/bin/sh
-while ! mc config host add h0 http://minio:3200 changeme changeme1234 2>/dev/null
+while ! mc config host add h0 http://ente-minio:3200 ${ENTE_MINIO_USER} ${ENTE_MINIO_PASSWORD} changeme1234 2>/dev/null
 do
     echo "Waiting for minio..."
     sleep 0.5
