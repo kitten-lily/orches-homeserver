@@ -6,6 +6,8 @@ TEMPLATE_PATH="/var/lib/orches/repo/ente/templates/museum.yaml"
 CONFIG_PATH="/var/lib/orches/repo/ente/config"
 CONFIG_FILE="${CONFIG_PATH}/museum.yaml"
 
+podman_secret Ente "Api Origin" ente-api-origin
+
 if [ ! -d "${CONFIG_PATH}" ]; then
     mkdir -p "${CONFIG_PATH}"
 fi

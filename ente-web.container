@@ -1,0 +1,20 @@
+[Unit]
+Description=Ente API Server
+Requires=ente-museum.container
+After=ente-museum.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-web
+Image=ghcr.io/ghcr.io/ente-io/web
+Secret=ente-api-origin,type=env,target=API_ORIGIN
+HostName=ente-web
+Network=ente.network
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
