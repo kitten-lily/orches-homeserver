@@ -1,0 +1,27 @@
+[Unit]
+Description=Ente PostgreSQL Database
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-pgsql
+Image=docker.io/library/postgres:17-alpine
+HostName=ente-pgsql
+Network=ente.network
+Secret=ente-pg-pass,type=env,target=POSTGRES_PASSWORD
+Environment=POSTGRES_USER=ente
+Environment=POSTGRES_DB=ente
+HealthCmd=pg_isready -U ente -d ente
+HealthStartPeriod=20s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+Volume=ente-pgsql:/var/lib/postgresql/data
+UserNS=auto:uidmapping=70:140001,gidmapping=70:140001
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/ente/pg-secrets.sh'
+
+[Install]
+WantedBy=multi-user.target default.target
