@@ -8,6 +8,7 @@ CONFIG_FILE="${CONFIG_PATH}/museum.yaml"
 
 podman_secret Ente "API Endpoint" ente-api-endpoint
 podman_secret Ente "Albums Endpoint" ente-albums-endpoint
+podman_secret Ente "B2 Endpoint" ente-b2-endpoint
 
 if [ ! -d "${CONFIG_PATH}" ]; then
     mkdir -p "${CONFIG_PATH}"
