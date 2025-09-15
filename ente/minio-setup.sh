@@ -1,5 +1,5 @@
 #!/bin/sh
-mc alias set ente http://ente-minio:3200 ${ENTE_MINIO_USER} ${ENTE_MINIO_PASSWORD}
+mc alias set ente http://ente-minio:3200 ${MINIO_ROOT_USER} ${MINIO_ROOT_PASSWORD}
 mc ping ente --exit
 
 cd /data
