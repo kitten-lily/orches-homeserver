@@ -10,7 +10,7 @@ Entrypoint=["/bin/sh", "/minio-setup.sh"]
 Image=docker.io/minio/mc
 HostName=ente-minio-init
 Network=ente.network
-Volume=ente-minio:/data:z,U
+Volume=ente-minio:/data
 Volume=/var/lib/orches/repo/ente/minio-setup.sh:/minio-setup.sh:ro,Z,U
 UserNS=auto:uidmapping=0:140000,gidmapping=0:140000
 Secret=ente-minio-user,type=env,target=MINIO_ROOT_USER
