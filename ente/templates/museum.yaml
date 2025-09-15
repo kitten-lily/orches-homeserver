@@ -2,7 +2,7 @@ db:
       host: ente-pgsql
       port: 5432
       name: ente_db
-      user: pguser
+      user: ente
       password: {{ op://${VAULT}/Ente/PostgreSQL Password }}
 
 s3:
