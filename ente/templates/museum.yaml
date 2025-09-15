@@ -40,10 +40,10 @@ s3:
 
 # Specify the base endpoints for various web apps
 apps:
-    # If you're running a self hosted instance and wish to serve public links,
-    # set this to the URL where your albums web app is running.
     custom-domain:
         cname: {{ op://${VAULT}/Ente/Web Endpoint }}
+    # If you're running a self hosted instance and wish to serve public links,
+    # set this to the URL where your albums web app is running.
     public-albums: {{ op://${VAULT}/Ente/Albums Endpoint }}
     cast: http://localhost:3004
     # Set this to the URL where your accounts web app is running, primarily used for
@@ -56,3 +56,16 @@ key:
 
 jwt:
       secret: {{ op://${VAULT}/Ente/JWT Secret }}
+
+smtp:
+    host: {{ op://${VAULT}/Ente/E-mail Host }}
+    port: 587
+    # Optional username and password if using local relay server
+    username: {{ op://${VAULT}/Ente/E-mail Username }}
+    password: {{ op://${VAULT}/Ente/E-mail Password }}
+    # Email address used for sending emails (this mail's credentials have to be provided)
+    email: {{ op://${VAULT}/Ente/E-mail Sender }}
+    # Optional name for sender
+    sender-name: Ente
+    # Optional encryption
+    encryption: tls
