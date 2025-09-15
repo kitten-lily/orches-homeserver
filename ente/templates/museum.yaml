@@ -59,7 +59,7 @@ jwt:
 
 smtp:
     host: {{ op://${VAULT}/Ente/E-mail Host }}
-    port: 587
+    port: 465
     # Optional username and password if using local relay server
     username: {{ op://${VAULT}/Ente/E-mail Username }}
     password: {{ op://${VAULT}/Ente/E-mail Password }}
@@ -68,4 +68,4 @@ smtp:
     # Optional name for sender
     sender-name: Ente
     # Optional encryption
-    encryption: tls
+    encryption: ssl
