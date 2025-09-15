@@ -1,0 +1,28 @@
+[Unit]
+Description=Ente API Server
+Requires=ente-pgsql.container
+Requires=ente-minio.container
+Requires=ente-newt.container
+After=ente-pgsql.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-museum
+Image=ghcr.io/ghcr.io/ente-io/server
+HostName=ente-museum
+Network=ente.network
+Volume=/var/lib/orches/repo/ente/config/museum.yaml:/museum.yaml:ro,z
+HealthCmd=curl --fail http://localhost:8080/ping
+HealthStartPeriod=30s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/ente/ente-setup.sh'
+
+[Install]
+WantedBy=default.target
