@@ -19,7 +19,7 @@ HealthInterval=30s
 HealthRetries=5
 HealthTimeout=5s
 UserNS=auto
-Environment=ENTE_S3_B2_EU_CEN_ENDPOINT_ARE_LOCAL_BUCKETS=false
+Environment=ENTE_S3_B2_EU_CEN_ARE_LOCAL_BUCKETS=false
 Secret=ente-b2-endpoint,type=env,target=ENTE_S3_B2_EU_CEN_ENDPOINT
 Secret=ente-minio-user,type=env,target=ENTE_S3_B2_EU_CEN_KEY
 Secret=ente-minio-password,type=env,target=ENTE_S3_B2_EU_CEN_SECRET
