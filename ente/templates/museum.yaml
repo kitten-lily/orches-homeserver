@@ -12,8 +12,8 @@ s3:
       # Set this to false if using subdomain-style URL. This is set to true for ensuring compatibility with MinIO when SSL is enabled.
       use_path_style_urls: true
       b2-eu-cen:
-         # Uncomment the below configuration to override the top-level configuration 
-         # are_local_buckets: true
+         # Uncomment the below configuration to override the top-level configuration
+         are_local_buckets: false
          # use_path_style_urls: true
          key: {{ op://${VAULT}/Ente/MinIO User }}
          secret: {{ op://${VAULT}/Ente/MinIO Password }}
