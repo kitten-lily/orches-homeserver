@@ -1,7 +1,5 @@
 #!/bin/sh
-export MC_HOST_ente=http://${ENTE_MINIO_USER}:${ENTE_MINIO_PASSWORD}@ente-minio:3200
-
-mc alias set ente
+mc alias set ente http://ente-minio:3200 ${ENTE_MINIO_USER} ${ENTE_MINIO_PASSWORD}
 while ! mc ping ente --count 1
 do
     echo "Waiting for minio..."
