@@ -6,7 +6,7 @@ After=ente-minio.container
 [Container]
 AutoUpdate=registry
 ContainerName=ente-minio-init
-Entrypoint=["/bin/sh", "/var/lib/orches/repo/ente/minio-setup.sh"]
+Entrypoint=["/bin/sh", "/minio-setup.sh"]
 Image=docker.io/minio/mc
 HostName=ente-minio-init
 Network=ente.network
