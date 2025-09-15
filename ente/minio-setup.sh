@@ -1,10 +1,6 @@
 #!/bin/sh
 mc alias set ente http://ente-minio:3200 ${ENTE_MINIO_USER} ${ENTE_MINIO_PASSWORD}
-while ! mc ping ente --count 1
-do
-    echo "Waiting for minio..."
-    sleep 0.5
-done
+mc ping ente
 
 cd /data
 
