@@ -1,5 +1,8 @@
 #!/bin/sh
-while ! mc config host add h0 http://ente-minio:3200 ${ENTE_MINIO_USER} ${ENTE_MINIO_PASSWORD}
+export MC_HOST_ente=${ENTE_MINIO_USER}:${ENTE_MINIO_PASSWORD}@ente-minio:3200
+
+mc alias set ente
+while ! mc ping ente --count 1
 do
     echo "Waiting for minio..."
     sleep 0.5
