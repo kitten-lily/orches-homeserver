@@ -10,7 +10,7 @@ if [ ! -d "${CONFIG_PATH}" ]; then
     mkdir -p "${CONFIG_PATH}"
 fi
 
-rm '${CONFIG_FILE}'
+rm "${CONFIG_FILE}"
 if [ ! -f "${CONFIG_FILE}" ]; then
     $OP_PODMAN --user root --volume $TEMPLATE_PATH:/template.yml:z \
     --volume $CONFIG_PATH:/config:z \
