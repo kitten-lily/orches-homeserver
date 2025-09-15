@@ -14,7 +14,7 @@ rm "${CONFIG_FILE}"
 if [ ! -f "${CONFIG_FILE}" ]; then
     $OP_PODMAN --user root --volume $TEMPLATE_PATH:/template.yml:z \
     --volume $CONFIG_PATH:/config:z \
-    $OP_IMAGE op inject --in-file /template.yml  --out-file /config/museum.yml --force
+    $OP_IMAGE op inject --in-file /template.yml  --out-file /config/museum.yaml --force
 
     cat <<EOF >>museum.yaml
 
