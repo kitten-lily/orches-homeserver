@@ -7,7 +7,7 @@ After=ente-museum.container
 AutoUpdate=registry
 ContainerName=ente-web
 Image=ghcr.io/ghcr.io/ente-io/web
-Secret=ente-api-origin,type=env,target=API_ORIGIN
+Secret=ente-api-origin,type=env,target=ENTE_API_ORIGIN
 HostName=ente-web
 Network=ente.network
 UserNS=auto
