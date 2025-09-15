@@ -49,8 +49,8 @@ apps:
     accounts: http://localhost:3001
 
 key:
-      encryption: $museum_key
-      hash: $museum_hash
+      encryption: {{ op://${VAULT}/Ente/Encryption Key }}
+      hash: {{ op://${VAULT}/Ente/Hash Key }}
 
 jwt:
-      secret: $museum_jwt_secret
+      secret: {{ op://${VAULT}/Ente/JWT Secret }}
