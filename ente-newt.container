@@ -1,0 +1,18 @@
+[Unit]
+Description=Newt Service for Ente
+
+[Container]
+AutoUpdate=registry
+ContainerName=ente-newt
+Image=docker.io/fosrl/newt:1.4.4
+Secret=ente-newt-id,type=env,target=NEWT_ID
+Secret=ente-newt-secret,type=env,target=NEWT_SECRET
+Secret=ente-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=ente-newt
+Network=ente.network
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && newt_secrets ente'
