@@ -19,6 +19,7 @@ HealthInterval=30s
 HealthRetries=5
 HealthTimeout=5s
 UserNS=auto
+Environment=GIN_MODE=release
 Environment=ENTE_S3_B2_EU_CEN_ARE_LOCAL_BUCKETS=false
 Environment=ENTE_S3_B2_EU_CEN_USE_PATH_STYLE_URLS=false
 Secret=ente-web-endpoint,type=env,target=ENTE_APPS_CUSTOM_DOMAIN_CNAME
@@ -37,6 +38,7 @@ Secret=ente-key-encryption,type=env,target=ENTE_KEY_ENCRYPTION
 Secret=ente-key-hash,type=env,target=ENTE_KEY_HASH
 Secret=ente-web-endpoint,type=env,target=ENTE_WEBAUTHN_RPID
 Secret=ente-webauthn-rporigins,type=env,target=ENTE_WEBAUTHN_RPORIGINS
+Secret=ente-admin,type=env,target=ENTE_INTERNAL_ADMIN
 
 [Service]
 Restart=always

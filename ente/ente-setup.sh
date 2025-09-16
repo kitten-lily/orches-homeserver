@@ -19,3 +19,5 @@ podman_secret Ente "Hash Key" ente-key-hash
 
 podman_secret Ente "PostgreSQL Password" ente-db-password
 podman_secret Ente "Webauthn Origins" ente-webauthn-rporigins
+
+podman_secret Ente "Admin User" ente-admin
