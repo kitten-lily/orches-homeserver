@@ -11,7 +11,7 @@ ContainerName=ente-museum
 Image=ghcr.io/ghcr.io/ente-io/server
 HostName=ente-museum
 Network=ente.network
-Volume=/var/lib/orches/repo/ente/config/museum.yaml:/museum.yaml:ro,z,U
+Volume=/var/lib/orches/repo/ente/config/museum.yaml:/museum.yaml:ro,z
 Volume=ente-data:/data
 HealthCmd=curl --fail http://localhost:8080/ping
 HealthStartPeriod=30s
@@ -21,9 +21,22 @@ HealthTimeout=5s
 UserNS=auto
 Environment=ENTE_S3_B2_EU_CEN_ARE_LOCAL_BUCKETS=false
 Environment=ENTE_S3_B2_EU_CEN_USE_PATH_STYLE_URLS=false
+Secret=ente-web-endpoint,type=env,target=ENTE_APPS_CUSTOM_DOMAIN_CNAME
+Secret=ente-albums-endpoint,type=env,target=ENTE_APPS_PUBLIC_ALBUMS
+Secret=ente-accounts-endpoint,type=env,target=ENTE_APPS_ACCOUNTS
+Secret=ente-db-password,type=env,target=ENTE_DM_PASSWORD
 Secret=ente-b2-endpoint,type=env,target=ENTE_S3_B2_EU_CEN_ENDPOINT
 Secret=ente-minio-user,type=env,target=ENTE_S3_B2_EU_CEN_KEY
 Secret=ente-minio-password,type=env,target=ENTE_S3_B2_EU_CEN_SECRET
+Secret=ente-smtp-host,type=env,target=ENTE_SMTP_HOST
+Secret=ente-smtp-username,type=env,target=ENTE_SMTP_USERNAME
+Secret=ente-smtp-password,type=env,target=ENTE_SMTP_PASSWORD
+Secret=ente-smtp-email,type=env,target=ENTE_SMTP_EMAIL
+Secret=ente-jwt-secret,type=env,target=ENTE_JWT_SECRET
+Secret=ente-key-encryption,type=env,target=ENTE_KEY_ENCRYPTION
+Secret=ente-key-hash,type=env,target=ENTE_KEY_HASH
+Secret=ente-web-endpoint,type=env,target=ENTE_WEBAUTHN_RPID
+Secret=ente-webauthn-rporigins,type=env,ENTE_WEBAUTHN_RPORIGINS
 
 [Service]
 Restart=always

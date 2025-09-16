@@ -2,20 +2,20 @@
 
 . /var/lib/orches/repo/scripts/utils.sh
 
-TEMPLATE_PATH="/var/lib/orches/repo/ente/templates/museum.yaml"
-CONFIG_PATH="/var/lib/orches/repo/ente/config"
-CONFIG_FILE="${CONFIG_PATH}/museum.yaml"
-
 podman_secret Ente "API Endpoint" ente-api-endpoint
 podman_secret Ente "Albums Endpoint" ente-albums-endpoint
+podman_secret Ente "Accounts Endpoint" ente-accounts-endpoint
 podman_secret Ente "B2 Endpoint" ente-b2-endpoint
+podman_secret Ente "Web Endpoint" ente-web-endpoint
 
-if [ ! -d "${CONFIG_PATH}" ]; then
-    mkdir -p "${CONFIG_PATH}"
-fi
+podman_secret Ente "E-mail Host" ente-smtp-host
+podman_secret Ente "E-mail Username" ente-smtp-username
+podman_secret Ente "E-mail Password" ente-smtp-password
+podman_secret Ente "E-mail Sender" ente-smtp-email
 
-if [ ! -f "${CONFIG_FILE}" ]; then
-    $OP_PODMAN --user root --volume $TEMPLATE_PATH:/template.yml:z \
-    --volume $CONFIG_PATH:/config:z \
-    $OP_IMAGE op inject --in-file /template.yml  --out-file /config/museum.yaml --force
-fi
+podman_secret Ente "JWT Secret" ente-jwt-secret
+podman_secret Ente "Encryption Key" ente-key-encryption
+podman_secret Ente "Hash Key" ente-key-hash
+
+podman_secret Ente "PostgreSQL Password" ente-db-password
+podman_secret Ente "Webauthn Origins" ente-webauthn-rporigins
