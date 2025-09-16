@@ -36,7 +36,7 @@ Secret=ente-jwt-secret,type=env,target=ENTE_JWT_SECRET
 Secret=ente-key-encryption,type=env,target=ENTE_KEY_ENCRYPTION
 Secret=ente-key-hash,type=env,target=ENTE_KEY_HASH
 Secret=ente-web-endpoint,type=env,target=ENTE_WEBAUTHN_RPID
-Secret=ente-webauthn-rporigins,type=env,ENTE_WEBAUTHN_RPORIGINS
+Secret=ente-webauthn-rporigins,type=env,target=ENTE_WEBAUTHN_RPORIGINS
 
 [Service]
 Restart=always
