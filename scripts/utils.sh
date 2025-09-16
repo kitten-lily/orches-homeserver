@@ -35,7 +35,7 @@ podman_secret() {
   check_op_token
   OP_SERVICE_ACCOUNT_TOKEN=$OP_SERVICE_ACCOUNT_TOKEN \
   $OP item get "$ITEM" --vault "$VAULT" --fields "$FIELD" --reveal --format json | \
-  echo -n "$(jq -r '.value')" | \
+  echo -n $(jq -r '.value') | \
   podman secret create "$SECRET_NAME" - > /dev/null
 }
 
