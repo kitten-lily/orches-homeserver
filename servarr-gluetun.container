@@ -9,12 +9,12 @@ Environment=VPN_SERVICE_PROVIDER=protonvpn
 Environment=VPN_TYPE=wireguard
 Environment=SERVER_COUNTRIES=Sweden
 Secret=servarr-wireguard-private-key,type=env,target=WIREGUARD_PRIVATE_KEY
+Network=host
 AddDevice=/dev/net/tun
-Pod=servarr.pod
 AddCapability=NET_ADMIN
 UserNS=auto
 
 [Service]
 Restart=always
 TimeoutStartSec=900
-ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && podman_secret Servarr "Wireguard Private Key" servarr-wireguard-private-key'
+ExecStartPre=bash -c '. /var/lib/orches/repo/servarr/gluetun_secrets.sh'
