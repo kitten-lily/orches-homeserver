@@ -9,11 +9,11 @@ Environment=PUID=1000
 Environment=PGID=1000
 Environment=UMASK=002
 Environment=TZ=Europe/Stockholm
-Pod=servarr.pod
+Network=servarr-gluetun.container
 Volume=servarr-radarr-config:/config
-Volume=/var/media/Downloads/flood:/downloads:z
+Volume=servarr-downloads:/downloads:z
 Volume=/var/media/Video/Radarr:/movies:z
-
+UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]
 Restart=always
