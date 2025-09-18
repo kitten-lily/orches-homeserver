@@ -9,9 +9,9 @@ Environment=PUID=1000
 Environment=PGID=1000
 Environment=UMASK=002
 Environment=TZ=Europe/Stockholm
-Pod=servarr.pod
+Network=servarr-gluetun.container
 Volume=servarr-prowlarr-config:/config
-
+UserNS=auto
 
 [Service]
 Restart=always
