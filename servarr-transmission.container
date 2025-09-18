@@ -14,7 +14,7 @@ Secret=servarr-transmission-password,type=env,target=PASS
 Network=servarr-gluetun.container
 Volume=servarr-transmission-config:/config
 Volume=servarr-downloads:/downloads
-UserNS=auto:uidmapping=1000:150000:gidmapping=1000:150000
+UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]
 Restart=always
