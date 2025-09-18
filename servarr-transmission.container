@@ -5,6 +5,7 @@ Description=Transmission torrent client
 AutoUpdate=registry
 ContainerName=servarr-transmission
 Image=lscr.io/linuxserver/transmission:latest
+HostName=servarr-transmission
 Environment=PUID=1000
 Environment=PGID=1000
 Environment=TZ=Europe/Stockholm

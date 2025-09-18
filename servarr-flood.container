@@ -4,6 +4,7 @@ Description=Flood torrent client web interface
 [Container]
 AutoUpdate=registry
 ContainerName=servarr-flood
+HostName=servarr-flood
 Image=docker.io/jesec/flood
 Environment=HOME=/config
 Network=servarr-gluetun.container
