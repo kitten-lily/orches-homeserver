@@ -9,6 +9,7 @@ Environment=VPN_SERVICE_PROVIDER=protonvpn
 Environment=VPN_TYPE=wireguard
 Environment=SERVER_COUNTRIES=Sweden
 Secret=servarr-wireguard-private-key,type=env,target=WIREGUARD_PRIVATE_KEY
+Secret=servarr-wireguard-countries,type=env,target=SERVER_COUNTRIES
 Network=servarr-gluetun.network
 AddDevice=/dev/net/tun
 AddCapability=NET_ADMIN
