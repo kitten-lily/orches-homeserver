@@ -5,14 +5,12 @@ Description=Flood torrent client web interface
 AutoUpdate=registry
 ContainerName=servarr-flood
 Image=docker.io/jesec/flood
-User=1000
-Group=1000
 Environment=HOME=/config
-Pod=servarr.pod
-Exec=--port 3001 --allowedpath /downloads
+Network=servarr-gluetun.container
+Exec=--port 3001 --allowedpath /downloads --baseUR /flood
 Volume=servarr-flood-config:/config
-Volume=/var/media/Downloads/flood:/downloads:z
-
+Volume=servarr-downloads:/downloads
+UserNS=auto:uidmapping=1000:150000:gidmapping=1000:150000
 
 [Service]
 Restart=always
