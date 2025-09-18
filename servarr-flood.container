@@ -8,6 +8,7 @@ HostName=servarr-flood
 Image=docker.io/jesec/flood
 Environment=HOME=/config
 Network=servarr-gluetun.container
+Network=servarr.network
 Exec=--port 3001 --allowedpath /downloads --baseUR /flood
 Volume=servarr-flood-config:/config
 Volume=servarr-downloads:/downloads
