@@ -13,7 +13,7 @@ Secret=servarr-transmission-user,type=env,target=USER
 Secret=servarr-transmission-password,type=env,target=PASS
 Network=servarr-gluetun.container
 Volume=servarr-transmission-config:/config
-Volume=servarr-downloads:/downloads
+Volume=servarr-downloads:/downloads:z
 UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]

@@ -10,7 +10,7 @@ Environment=HOME=/config
 Network=servarr-gluetun.container
 Exec=--baseuri /flood --port 3001 --allowedpath /downloads
 Volume=servarr-flood-config:/config
-Volume=servarr-downloads:/downloads
+Volume=servarr-downloads:/downloads:z
 UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]
