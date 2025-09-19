@@ -8,7 +8,8 @@ Image=docker.io/fosrl/newt:1.5.0
 Secret=servarr-newt-id,type=env,target=NEWT_ID
 Secret=servarr-newt-secret,type=env,target=NEWT_SECRET
 Secret=servarr-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
-Network=servarr-external.network
+Network=servarr-newt.network
+Network=servarr.network
 UserNS=auto
 
 [Service]
