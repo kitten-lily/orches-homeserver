@@ -18,7 +18,6 @@ Environment=AUTHENTIK_ERROR_REPORTING__ENABLED=true
 Environment=AUTHENTIK_REDIS__HOST=authentik-redis
 Secret=authentik-secret-key,type=env,target=AUTHENTIK_SECRET_KEY
 # SMTP Host Emails are sent to
-Environment=AUTHENTIK_EMAIL__HOST=in-v3.mailjet.com
 Secret=authentik-email-host,type=env,target=AUTHENTIK_EMAIL__HOST
 Environment=AUTHENTIK_EMAIL__PORT=587
 # Optionally authenticate (don't add quotation marks to your password)
