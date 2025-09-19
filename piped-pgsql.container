@@ -1,0 +1,27 @@
+[Unit]
+Description=Piped PostgreSQL Database
+
+[Container]
+AutoUpdate=registry
+ContainerName=piped-pgsql
+Image=docker.io/library/postgres:17-alpine
+HostName=piped-pgsql
+Network=piped.network
+Secret=piped-pg-pass,type=env,target=POSTGRES_PASSWORD
+Environment=POSTGRES_USER=piped
+Environment=POSTGRES_DB=piped
+HealthCmd=pg_isready -U piped -d piped
+HealthStartPeriod=20s
+HealthInterval=30s
+HealthRetries=5
+HealthTimeout=5s
+Volume=piped-pgsql:/var/lib/postgresql/data
+UserNS=auto:uidmapping=70:160001,gidmapping=70:160001
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/piped/pg-secrets.sh'
+
+[Install]
+WantedBy=multi-user.target default.target

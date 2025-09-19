@@ -8,8 +8,6 @@ This repository provides a rootful configuration template for [orches](https://g
 
 - [Overview](#overview)
 - [Quick Start](#quick-start)
-- [Repository Structure](#repository-structure)
-- [Customizing Your Deployment](#customizing-your-deployment)
 
 ## Overview
 
@@ -52,13 +50,8 @@ sudo podman run --rm -it --pid=host --pull=newer \
   https://github.com/kitten-lily/orches-homeserver.git
 ```
 
-### 5. Verify orches and caddy are running
+### 5. Verify orches is running
 ```bash
 systemctl status orches
 sudo podman exec systemd-orches orches status
 ```
-
-## Repository Structure
-
-- `orches.container`: Unit file for running orches as a rootful Podman container
-- `caddy.container`: Example unit file for running a Caddy webserver
