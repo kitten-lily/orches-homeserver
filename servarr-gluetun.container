@@ -11,7 +11,6 @@ Environment=PORT_FORWARD_ONLY=true
 Secret=servarr-wireguard-private-key,type=env,target=WIREGUARD_PRIVATE_KEY
 Secret=servarr-wireguard-countries,type=env,target=SERVER_COUNTRIES
 Network=servarr-external.network
-Network=servarr.network
 AddDevice=/dev/net/tun
 AddCapability=NET_ADMIN
 UserNS=auto
