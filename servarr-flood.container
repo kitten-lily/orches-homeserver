@@ -1,8 +1,5 @@
 [Unit]
 Description=Flood torrent client web interface
-Requires=servarr-gluetun.container
-Requires=servarr-transmission.container
-Requires=servarr-newt.container
 
 [Container]
 AutoUpdate=registry

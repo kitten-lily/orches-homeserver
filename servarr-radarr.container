@@ -1,9 +1,5 @@
 [Unit]
 Description=Radarr
-Requires=servarr-prowlarr.container
-Requires=servarr-flood.container
-Requires=servarr-gluetun.container
-Requires=servarr-newt.container
 
 [Container]
 AutoUpdate=registry
