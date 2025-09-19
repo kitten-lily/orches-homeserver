@@ -1,5 +1,7 @@
 [Unit]
 Description=Prowlarr
+Requires=servarr-gluetun.container
+Requires=servarr-newt.container
 
 [Container]
 AutoUpdate=registry

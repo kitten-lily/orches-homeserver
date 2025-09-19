@@ -1,5 +1,6 @@
 [Unit]
 Description=Transmission torrent client
+Requires=servarr-gluetun.container
 
 [Container]
 AutoUpdate=registry
