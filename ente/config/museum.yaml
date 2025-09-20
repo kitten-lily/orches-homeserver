@@ -1,72 +1,72 @@
 db:
-      host: ente-pgsql
-      port: 5432
-      name: ente_db
-      user: ente
-      password: $pg_pass
+  host: ente-pgsql
+  port: 5432
+  name: ente_db
+  user: ente
+  password: $pg_pass
 
 s3:
-      # Top-level configuration for buckets, you can override by specifying these configuration in the desired bucket.
-      # Set this to false if using external object storage bucket or bucket with SSL
-      are_local_buckets: true
-      # Set this to false if using subdomain-style URL. This is set to true for ensuring compatibility with MinIO when SSL is enabled.
-      use_path_style_urls: true
-      b2-eu-cen:
-         # Uncomment the below configuration to override the top-level configuration 
-         # are_local_buckets: true
-         # use_path_style_urls: true
-         key: $minio_user
-         secret: $minio_pass
-         endpoint: localhost:3200
-         region: eu-central-2
-         bucket: b2-eu-cen
-      wasabi-eu-central-2-v3:
-         # are_local_buckets: true
-         # use_path_style_urls: true
-         key: $minio_user
-         secret: $minio_pass
-         endpoint: localhost:3200
-         region: eu-central-2
-         bucket: wasabi-eu-central-2-v3
-         compliance: false
-      scw-eu-fr-v3:
-         # are_local_buckets: true
-         # use_path_style_urls: true
-         key: $minio_user
-         secret: $minio_pass
-         endpoint: localhost:3200
-         region: eu-central-2
-         bucket: scw-eu-fr-v3
+  # Top-level configuration for buckets, you can override by specifying these configuration in the desired bucket.
+  # Set this to false if using external object storage bucket or bucket with SSL
+  are_local_buckets: true
+  # Set this to false if using subdomain-style URL. This is set to true for ensuring compatibility with MinIO when SSL is enabled.
+  use_path_style_urls: true
+  b2-eu-cen:
+    # Uncomment the below configuration to override the top-level configuration
+    # are_local_buckets: true
+    # use_path_style_urls: true
+    key: $minio_user
+    secret: $minio_pass
+    endpoint: localhost:3200
+    region: eu-central-2
+    bucket: b2-eu-cen
+  wasabi-eu-central-2-v3:
+    # are_local_buckets: true
+    # use_path_style_urls: true
+    key: $minio_user
+    secret: $minio_pass
+    endpoint: localhost:3200
+    region: eu-central-2
+    bucket: wasabi-eu-central-2-v3
+    compliance: false
+  scw-eu-fr-v3:
+    # are_local_buckets: true
+    # use_path_style_urls: true
+    key: $minio_user
+    secret: $minio_pass
+    endpoint: localhost:3200
+    region: eu-central-2
+    bucket: scw-eu-fr-v3
 
 # Specify the base endpoints for various web apps
 apps:
-    # If you're running a self hosted instance and wish to serve public links,
-    # set this to the URL where your albums web app is running.
-    public-albums: http://localhost:3002
-    cast: http://localhost:3004
-    # Set this to the URL where your accounts web app is running, primarily used for
-    # passkey based 2FA.
-    accounts: http://localhost:3001
+  # If you're running a self hosted instance and wish to serve public links,
+  # set this to the URL where your albums web app is running.
+  public-albums: http://localhost:3002
+  cast: http://localhost:3004
+  # Set this to the URL where your accounts web app is running, primarily used for
+  # passkey based 2FA.
+  accounts: http://localhost:3001
 
 key:
-      encryption: $museum_key
-      hash: $museum_hash
+  encryption: $museum_key
+  hash: $museum_hash
 
 jwt:
-      secret: $museum_jwt_secret
+  secret: $museum_jwt_secret
 
 smtp:
-    host:
-    port: 465
-    # Optional username and password if using local relay server
-    username:
-    password:
-    # Email address used for sending emails (this mail's credentials have to be provided)
-    email:
-    # Optional name for sender
-    sender-name: Ente
-    # Optional encryption
-    encryption: ssl
+  host:
+  port: 587
+  # Optional username and password if using local relay server
+  username:
+  password:
+  # Email address used for sending emails (this mail's credentials have to be provided)
+  email:
+  # Optional name for sender
+  sender-name: Ente
+  # Optional encryption
+  encryption: tls
 
 internal:
-    disable-registration: true
+  disable-registration: true
