@@ -19,6 +19,14 @@ Environment=AUTHENTIK_REDIS__HOST=authentik-redis
 Environment=AUTHENTIK_POSTGRESQL__HOST=authentik-pgsql
 Environment=AUTHENTIK_POSTGRESQL__USER=authentik
 Environment=AUTHENTIK_POSTGRESQL__NAME=authentik
+Secret=authentik-email-host,type=env,target=AUTHENTIK_EMAIL__HOST
+Environment=AUTHENTIK_EMAIL__PORT=587
+Secret=authentik-email-username,type=env,target=AUTHENTIK_EMAIL__USERNAME
+Secret=authentik-email-password,type=env,target=AUTHENTIK_EMAIL__PASSWORD
+Environment=AUTHENTIK_EMAIL__USE_TLS=true
+Environment=AUTHENTIK_EMAIL__USE_SSL=false
+Environment=AUTHENTIK_EMAIL__TIMEOUT=10
+Secret=authentik-email-from,type=env,target=AUTHENTIK_EMAIL__FROM
 Secret=authentik-pg-pass,type=env,target=AUTHENTIK_POSTGRESQL__PASSWORD
 Secret=authentik-secret-key,type=env,target=AUTHENTIK_SECRET_KEY
 HealthCmd=ak healthcheck
