@@ -12,7 +12,7 @@ Environment=TZ=Europe/Stockholm
 Network=servarr-gluetun.container
 Volume=servarr-sonarr-config:/config
 Volume=servarr-downloads:/downloads:z
-Volume=/var/media/Video/Sonarr:/tv:z,U
+Volume=/var/media/Video/Sonarr:/tv:z
 UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]
