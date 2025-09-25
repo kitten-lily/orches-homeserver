@@ -11,7 +11,7 @@ Environment=UMASK=002
 Environment=TZ=Europe/Stockholm
 Network=servarr-gluetun.container
 Volume=servarr-prowlarr-config:/config
-UserNS=auto
+UserNS=auto:uidmapping=1000:150000,gidmapping=1000:150000
 
 [Service]
 Restart=always
