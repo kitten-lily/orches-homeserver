@@ -1,0 +1,22 @@
+[Unit]
+Description=Gluetun VPN service for piped
+
+[Container]
+AutoUpdate=registry
+ContainerName=piped-gluetun
+Image=docker.io/qmcgaw/gluetun
+Environment=VPN_SERVICE_PROVIDER=protonvpn
+Environment=VPN_TYPE=wireguard
+Environment=PORT_FORWARD_ONLY=true
+Secret=piped-wireguard-private-key,type=env,target=WIREGUARD_PRIVATE_KEY
+Secret=piped-wireguard-countries,type=env,target=SERVER_COUNTRIES
+Network=piped-gluetun.network
+Network=piped.network
+AddDevice=/dev/net/tun
+AddCapability=NET_ADMIN
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/piped/gluetun-secrets.sh'

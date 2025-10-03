@@ -1,2 +1,3 @@
 [Network]
 NetworkName=servarr-gluetun
+IPv6=false
