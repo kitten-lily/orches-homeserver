@@ -1,0 +1,19 @@
+[Unit]
+Description=Fladder Jellyfin frontend
+Requires=jellyfin.container
+
+[Container]
+AutoUpdate=registry
+ContainerName=jellyfin-fladder
+Image=ghcr.io/donutware/fladder:latest
+HostName=jellyfin-fladder
+Network=jellyfin.network
+Secret=jellyfin-server-url,type=env,target=BASE_URL
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
