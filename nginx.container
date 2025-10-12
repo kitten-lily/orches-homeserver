@@ -3,7 +3,7 @@ Description=Nginx website
 
 [Container]
 AutoUpdate=registry
-ContainerName=nginx-newt
+ContainerName=nginx
 Image=cgr.dev/chainguard/nginx:latest
 HostName=nginx
 Network=nginx.network
