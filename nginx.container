@@ -5,6 +5,7 @@ Description=Nginx website
 AutoUpdate=registry
 ContainerName=nginx
 Image=cgr.dev/chainguard/nginx:latest
+Volume=var/www/html:/usr/share/nginx/html/:ro,z
 HostName=nginx
 Network=nginx.network
 UserNS=auto
