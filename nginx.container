@@ -1,0 +1,15 @@
+[Unit]
+Description=Nginx website
+
+[Container]
+AutoUpdate=registry
+ContainerName=nginx-newt
+Image=cgr.dev/chainguard/nginx:latest
+HostName=nginx
+Network=nginx.network
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && newt_secrets nginx'

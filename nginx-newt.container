@@ -1,0 +1,18 @@
+[Unit]
+Description=Newt Service for nginx
+
+[Container]
+AutoUpdate=registry
+ContainerName=nginx-newt
+Image=docker.io/fosrl/newt:1.5.2
+Secret=nginx-newt-id,type=env,target=NEWT_ID
+Secret=nginx-newt-secret,type=env,target=NEWT_SECRET
+Secret=nginx-pangolin-endpoint,type=env,target=PANGOLIN_ENDPOINT
+HostName=nginx-newt
+Network=nginx.network
+UserNS=auto
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+ExecStartPre=bash -c '. /var/lib/orches/repo/scripts/utils.sh && newt_secrets nginx'
